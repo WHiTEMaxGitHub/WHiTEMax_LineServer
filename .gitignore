@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# premake cmake生成的文件
+_build/
+_out/
+vendor/
+CMakeFiles/
+compile_commands.json
+LineServer
+.clangd
+.clang-format
