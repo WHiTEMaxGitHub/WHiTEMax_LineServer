@@ -1,3 +1,4 @@
+# 这个makefile负责cmake相关的生成和编译操作，premake相关操作请自行编写脚本
 .PHONY: debug release Debug-compile Release-compile clean
 # 生成debug版本工程文件并在项目根目录建软连接
 debug:

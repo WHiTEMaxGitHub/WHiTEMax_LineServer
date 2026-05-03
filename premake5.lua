@@ -1,11 +1,12 @@
 workspace "LineServer"
     configurations { "Debug", "Release" }
     platforms { "x64" }
-    location "build"
+    location "_build"
     startproject "LineServer"
 
-    targetdir "bin/%{cfg.buildcfg}"
-    objdir "obj/%{cfg.buildcfg}"
+    -- 输出目录（与 CMake 的 _out 对应）
+    targetdir "_out/%{cfg.buildcfg}/bin"
+    objdir "_out/%{cfg.buildcfg}/obj"
 
     -- ============================================
     -- Utils 静态库
@@ -14,7 +15,7 @@ workspace "LineServer"
         kind "StaticLib"
         language "C++"
         cppdialect "C++17"
-        targetname "utils"
+        targetname "Utils"
 
         files {
             "Source/Utils/include/**.h",
@@ -31,6 +32,14 @@ workspace "LineServer"
 
         filter { "system:linux" }
             buildoptions { "-Wall", "-Wextra" }
+
+        filter { "configurations:Debug" }
+            symbols "On"
+            optimize "Off"
+
+        filter { "configurations:Release" }
+            symbols "Off"
+            optimize "Speed"
 
         filter {}
 
@@ -64,5 +73,14 @@ workspace "LineServer"
 
         filter { "system:linux" }
             buildoptions { "-Wall", "-Wextra" }
+            links { "pthread" }
+
+        filter { "configurations:Debug" }
+            symbols "On"
+            optimize "Off"
+
+        filter { "configurations:Release" }
+            symbols "Off"
+            optimize "Speed"
 
         filter {}
