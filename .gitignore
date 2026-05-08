@@ -363,8 +363,8 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # premake cmake生成的文件
-_build/
-_out/
+build/
+out/
 vendor/
 CMakeFiles/
 compile_commands.json
