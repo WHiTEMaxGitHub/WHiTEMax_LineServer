@@ -7,6 +7,6 @@ out/
 vendor/
 CMakeFiles/
 compile_commands.json
-LineServer
+/LineServer
 .clangd
 .clang-format
